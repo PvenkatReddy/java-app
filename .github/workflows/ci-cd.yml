@@ -27,8 +27,8 @@ jobs:
     - name: Push Docker Image to Docker Hub
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker tag java-docker-app:latest yourdockerhubusername/java-docker-app:latest
-        docker push yourdockerhubusername/java-docker-app:latest
+        docker tag java-docker-app:latest venkatreddy290/java-docker-app:latest
+        docker push venkatreddy290/java-docker-app:latest
 
   deploy:
     needs: build
@@ -45,4 +45,4 @@ jobs:
 
     - name: Helm Install/Upgrade
       run: |
-        helm upgrade --install java-app ./helm/java-app-chart --set image.repository=yourdockerhubusername/java-docker-app --set image.tag=latest --namespace default
+        helm upgrade --install java-app ./helm/java-app-chart --set image.repository=venkatreddy290/java-docker-app --set image.tag=latest --namespace default
