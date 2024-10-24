@@ -21,9 +21,11 @@ jobs:
 
     - name: Build with Maven
       run: mvn clean package
+      working-directory: ./demo/src/main/java/com/example/demo/DemoApplication
 
     - name: Build Docker Image
       run: docker build -t java-docker-app .
+      working-directory: ./DockerFile
 
     - name: Push Docker Image to Docker Hub
       run: |
