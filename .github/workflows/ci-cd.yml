@@ -23,8 +23,12 @@ jobs:
       run: mvn clean package
       working-directory: demo/src
 
-    - name: List target directory (Debugging step)
-      run: ls demo/src/target
+    - name: List target directory to verify JAR creation
+      run: |
+        echo "Checking contents of target directory:"
+        ls demo/src/target || echo "target directory not found"
+        echo "Checking if JAR file exists:"
+        ls demo/src/target/*.jar || echo "JAR file not found"
 
     - name: Build Docker Image
       run: docker build -t java-docker-app .
