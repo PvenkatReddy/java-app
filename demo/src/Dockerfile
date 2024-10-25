@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-alpine
 WORKDIR /app
 
 # Copy the project jar file to the container
-COPY demo/src/target/java-docker-app-1.0-SNAPSHOT.jar /app/app.jar
+COPY target/java-docker-app-1.0-SNAPSHOT.jar /app/app.jar
 
 # Expose the port where the app runs
 EXPOSE 8080
