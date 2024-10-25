@@ -23,6 +23,9 @@ jobs:
       run: mvn clean package
       working-directory: demo/src
 
+    - name: List target directory (Debugging step)
+      run: ls demo/src/target
+
     - name: Build Docker Image
       run: docker build -t java-docker-app .
       working-directory: demo/src
